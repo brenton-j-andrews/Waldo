@@ -1,5 +1,67 @@
 @import url(Reset.css);
 
+/* Custom colors and variables */
+@font-face {
+    font-family: headerFont;
+    src: url("../Assets/Fonts/QuartzoBold-W9lv.ttf");
+}
+
+#root,
 .App {
-    color: red;
+    width: min(100%, 1500px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Header Styling || */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 25px;
+}
+
+.header-text {
+    font-family: headerFont;
+    font-size: 4rem;
+
+    background: -webkit-linear-gradient(red, blue);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-left: 25px;
+}
+
+.header-waldo {
+    float: right;
+    max-height: 150px;
+    max-width: auto;
+}
+
+/* Homepage styling || */
+.homepage-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+}
+
+.display-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.level-select-mini-map {
+    height: 150px;
+    width: auto;
 }
