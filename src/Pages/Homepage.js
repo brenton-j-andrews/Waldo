@@ -16,6 +16,7 @@ const Homepage = ( props ) => {
                 src = {level.src}
                 difficulty = {level.difficulty}
                 src-alt ={level.map}
+                char_names = {level.char_names}
                 char_icons = {level.char_icons}
             />
             

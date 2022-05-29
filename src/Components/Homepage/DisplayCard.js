@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { renderIcons } from "../../Helpers/helperFunctions";
+import { renderIconsAndNames } from "../../Helpers/helperFunctions";
 
 const DisplayCard = (props) => {
 
@@ -10,7 +10,7 @@ const DisplayCard = (props) => {
             <p className="level-text"> Level {props.id} </p>
             <img className="level-select-mini-map" src={props.src} alt="level"></img>
             <div className="display-card-level-info">
-                { renderIcons(props) }
+                { renderIconsAndNames(props, "icons") }
                 <p className="difficulty-text"> Difficulty: {props.difficulty}</p>
             </div>
         </div>

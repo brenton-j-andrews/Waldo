@@ -7,14 +7,13 @@ import levelObjects from "../Assets/levelObjects";
 const Game = (props) => {
 
     const levelObj = levelObjects[props.level - 1];
-    console.log(levelObj);
 
     return (
         <div className="game-wrapper">
             <div className="game-information-banner">
                 <p className="game-information-banner-text"> Level {props.level}</p>
                 <div className="game-char-icons">
-                    { renderIconsAndNames(levelObj)}
+                    { renderIconsAndNames(levelObj, "both")}
                 </div>
             
                 <button className="game-start-btn"> Click to Start! </button>
