@@ -160,8 +160,46 @@
     font-size: 12px;
 }
 
+
+.game-field {
+    position: relative;
+    width: 1000px;
+    height: 650px;
+}
+
+.game-field:first-child {
+    position: relative;
+}
+
 .game-image {
-    max-width: 1000px;
-    height: auto;
-    border: 3px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+/* Dropdown styling || */
+.game-dropdown-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.dropdown-target-box {
+    border: 5px solid black;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.dropdown-names {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: gray;
+    margin-top: 5px;
+}
+
+.dropdown-btn {
+    margin-bottom: 2px;
 }

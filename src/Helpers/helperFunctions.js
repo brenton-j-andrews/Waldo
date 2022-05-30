@@ -1,11 +1,16 @@
+import React from "react";
+
 // Helper functions
 
 // function for rendering icons and names from levelObject array. 2nd arg indicates what to return.
 export function renderIconsAndNames(props, arg) {
 
+    
     const icons = Object.values(props.char_icons);
     const names = Object.values(props.char_names);
 
+
+    // Render just icons
     if (arg === "icons") {
         return (
             <div className="display-card-char-icons" >
@@ -14,15 +19,9 @@ export function renderIconsAndNames(props, arg) {
         )
     }
 
-    else if (arg === "names") {
-        return (
-            <div className="pop-up-menu-name" >
-                { names.map( name => <p className="char-name" src = {name} alt="" key={name}></p> )}
-            </div>
-        )
-    }
     
-    else if (arg === "both") {
+    // Render both for display bar.
+    else if (arg === "display") {
         return (
 
             icons.map(( icon, index) => 
@@ -33,6 +32,15 @@ export function renderIconsAndNames(props, arg) {
             )
         )
     }
+
+    // Render both for dropdown menu.
+    else if (arg === "dropdown") {
+        return (
+
+            icons.map(( icon, index) => 
+                <button className="dropdown-btn"> {names[index]}</button>
+                
+            )
+        )
+    }
 }
-
-
