@@ -32,15 +32,12 @@ export function renderIconsAndNames(props, arg) {
             )
         )
     }
+}
 
-    // Render both for dropdown menu.
-    else if (arg === "dropdown") {
-        return (
 
-            icons.map(( icon, index) => 
-                <button className="dropdown-btn"> {names[index]}</button>
-                
-            )
-        )
-    }
+// function for comparing clicked coordinates and answer coordinates. +/- 25 pixels for x and y axis.
+export function checkClickedCoordinates(input_Coord, answer_coord) {
+    if (input_Coord >= (answer_coord - 25) && input_Coord <= (answer_coord + 25)) {
+        return true;
+    } return false;
 }

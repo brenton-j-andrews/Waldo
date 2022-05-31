@@ -23,7 +23,9 @@ const levels = [
         img_alt: "Where's Waldo Level 1",
         max_score: 1,
         char_names : ["Waldo"],
-        char_icons : [waldo]
+        char_icons : [waldo],
+        char_cooords: [[855, 482]],
+        char_found: [false]
     },
 
     {
@@ -34,7 +36,9 @@ const levels = [
         img_alt: "Where's Waldo Level 2",
         max_score: 1,
         char_names : ["Waldo"],
-        char_icons : [waldo]
+        char_icons : [waldo],
+        char_cooords: [[572, 230]],
+        char_found: [false]
     },
 
     {
@@ -45,18 +49,22 @@ const levels = [
         img_alt: "Where's Waldo Level 3",
         max_score: 3,
         char_names : ["Waldo", "Wilma", "Wizard"],
-        char_icons : [waldo, wilma, wizard]
+        char_icons : [waldo, wilma, wizard],
+        char_cooords: [[477, 146], [227, 218], [690, 110]],
+        char_found: [false, false, false],
     },
     
     {
         id: 4,
         map: "maze-map",
-        difficulty: "Medium",
+        difficulty: "Hard",
         src: map4,
         img_alt: "Where's Waldo Level 4",
         max_score: 4,
         char_names : ["Waldo", "Wilma", "Wizard", "Odlaw"],
-        char_icons : [waldo, wilma, wizard, odlaw]
+        char_icons : [waldo, wilma, wizard, odlaw],
+        char_cooords: [[560, 289], [313, 400], [666, 210], [437, 215]],
+        char_found: [false, false, false]
     },
 
     {
@@ -67,7 +75,9 @@ const levels = [
         img_alt: "Where's Waldo Level 5",
         max_score: 4,
         char_names : ["Waldo", "Wilma", "Wizard", "Odlaw"],
-        char_icons : [waldo, wilma, wizard, odlaw]
+        char_icons : [waldo, wilma, wizard, odlaw],
+        char_cooords: [[941, 40], [277, 420], [290, 261], [902, 365]],
+        char_found: [false, false, false, false]
     },
 
     {
@@ -77,8 +87,10 @@ const levels = [
         src: map6,
         img_alt: "Where's Waldo Level 6",
         max_score: 3,
-        char_names : ["Waldo", "Wilma", "Odlaw"],
-        char_icons : [waldo, wilma, odlaw]
+        char_names : ["Waldo", "Wilma"],
+        char_icons : [waldo, wilma],
+        char_cooords: [[169, 552], [756, 493]],
+        char_found: [false, false]
     },
 
 ]

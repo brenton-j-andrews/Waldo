@@ -1,10 +1,9 @@
 // Dropdown game menu and target, called on clicking game image.
 import React from "react";
 
-import { renderIconsAndNames } from "../../Helpers/helperFunctions";
+const Dropdown = ({show, levelObject, location, checkAnswer}) => {
 
-
-const Dropdown = ({show, levelObjects, location}) => {
+    let names = levelObject.char_names;
 
     if (show) {
         return (
@@ -14,9 +13,7 @@ const Dropdown = ({show, levelObjects, location}) => {
                 </div>
 
                 <div className="dropdown-names">
-                {
-                    renderIconsAndNames(levelObjects, "dropdown")
-                }
+                    {names.map((name, index) => ( <button className="dropdown-btn" key={name} onClick={() => checkAnswer(index)}> {name} </button>))}
                 </div>
             </div>
         )
