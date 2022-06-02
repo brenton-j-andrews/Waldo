@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState  } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
 import Dropdown from "../Components/Game/Dropdown";
@@ -18,8 +18,6 @@ const Game = (props) => {
 
     const levelObject = levelObjects[props.level - 1];
 
-    // Check 
-
     // Called on clicking the image, event data parsed in other functions.
     const onImageClick = (e) => {
         setShowDropdown(true);
@@ -30,7 +28,6 @@ const Game = (props) => {
     const fetchCoordinates = (e) => {
         let x_coord = e.nativeEvent.offsetX;
         let y_coord = e.nativeEvent.offsetY;
-        console.log(x_coord, y_coord);
         setCoords([x_coord, y_coord]);
         setDropLoc({ left: `${Math.round(( (x_coord - 50) / IMAGE_WIDTH ) * 100)}%`, top: `${Math.round(( (y_coord - 27) / IMAGE_HEIGHT ) * 100)}%` });
     }
