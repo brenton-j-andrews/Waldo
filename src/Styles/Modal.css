@@ -1,0 +1,20 @@
+.game-modal {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+
+    border: 3px solid gray;
+    background-color: white;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-finish {
+    font-size: 40px;
+    color: red;
+    margin-bottom: 10px;
+}

@@ -1,10 +1,12 @@
-import React, { useState  } from "react";
+import React, { useState, useEffect  } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
 import Dropdown from "../Components/Game/Dropdown";
+import Modal from "../Components/Game/Modal";
 
 import { renderIconsAndNames, checkClickedCoordinates } from "../Helpers/helperFunctions";
 import levelObjects from "../Assets/levelObjects";
+
 
 const IMAGE_HEIGHT = 650;
 const IMAGE_WIDTH = 1000;
@@ -15,8 +17,21 @@ const Game = (props) => {
     let [coords, setCoords] = useState([0, 0]);
     let [dropLoc, setDropLoc] = useState({ left: "0%", top: "0%"});
     let [gameOver, setGameOver] = useState(false);
+    let [startTime, setStartTime] = useState(Date.now());
+    let [elapsedTime, setElapsedTime] = useState(null);
+    let [username, setUsername] = useState("");
 
     const levelObject = levelObjects[props.level - 1];
+
+    // If game over, calculate elapsed time andd push data to firebase firestore.
+    useEffect(() => {
+        if (gameOver === true) {
+            let endTime = Date.now();
+            let scoreTime = (endTime - startTime) / 1000;
+            setElapsedTime(elapsedTime = scoreTime);
+        }
+    }, [gameOver]);
+    
 
     // Called on clicking the image, event data parsed in other functions.
     const onImageClick = (e) => {
@@ -43,9 +58,10 @@ const Game = (props) => {
         }
     }
 
+    // Check if conditions for game over are met.
     const checkGameOver = () => {
         if (levelObject.char_found.every(value => value === true)) {
-            alert("you won the game, wow!!!");
+            // totalTime = totalPlayTime();
             setGameOver(true);
         }
     }
@@ -53,6 +69,18 @@ const Game = (props) => {
     // Toggle dropdown menu view boolean.
     const hideDropDown = () => {
         setShowDropdown(false);
+    }
+
+    // Update username on modal form:
+    const updateUsername = (e) => {
+        setUsername(username = e.target.value)
+    }
+
+    // Submit score to firebase database.
+    const submitScore = (e) => {
+        console.log("Information to be sent to server:")
+        console.log(username);
+        console.log(elapsedTime);
     }
 
     return (
@@ -69,7 +97,7 @@ const Game = (props) => {
             
             <div className="game-field">
 
-                <OutsideClickHandler display="contents" onOutsideClick={hideDropDown} >
+                <OutsideClickHandler display="contents" onOutsideClick={() => {hideDropDown()}} >
                     <img 
                         className="game-image" 
                         src={levelObject.src} 
@@ -83,7 +111,16 @@ const Game = (props) => {
                     location = {dropLoc}
                     checkAnswer = {checkAnswer}
                     />
+
+                    <Modal 
+                    show = {gameOver}
+                    elapsedTime = {elapsedTime}
+                    submitScore = {submitScore}
+                    username = {username} 
+                    updateUsername = {updateUsername}
+                    />
         
+
                 </OutsideClickHandler>
             </div>
 
