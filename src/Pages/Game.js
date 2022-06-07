@@ -1,5 +1,6 @@
 import React, { useState, useEffect  } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
+import firebase, { firestore } from "../firebase-config";
 
 import Dropdown from "../Components/Game/Dropdown";
 import Modal from "../Components/Game/Modal";
@@ -23,7 +24,7 @@ const Game = (props) => {
 
     const levelObject = levelObjects[props.level - 1];
 
-    // If game over, calculate elapsed time andd push data to firebase firestore.
+    // If game over, calculate elapsed time.
     useEffect(() => {
         if (gameOver === true) {
             let endTime = Date.now();
@@ -77,10 +78,17 @@ const Game = (props) => {
     }
 
     // Submit score to firebase database.
-    const submitScore = (e) => {
-        console.log("Information to be sent to server:")
-        console.log(username);
-        console.log(elapsedTime);
+    const submitScore = async () => {
+        const docPath = `level${props.level}`
+        const ref = await firestore.collection("game").doc(`level${props.level}`).get();
+        console.log(ref);
+
+        const data = {
+            name: {username},
+            score: {elapsedTime}
+        }
+
+        firestore.collection("game").doc(docPath).collection("scores").add(data);
     }
 
     return (
@@ -120,7 +128,6 @@ const Game = (props) => {
                     updateUsername = {updateUsername}
                     />
         
-
                 </OutsideClickHandler>
             </div>
 
