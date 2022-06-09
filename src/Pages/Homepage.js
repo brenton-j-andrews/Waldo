@@ -37,6 +37,9 @@ const Homepage = ( props ) => {
                 </div>
             </div>
             
+            <div className="leaderboard-banner">
+                <a href="./leaderboard" className="leaderboard-link"> Leaderboard </a>
+            </div>
         </div>
     )
 }

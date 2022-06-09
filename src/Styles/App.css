@@ -56,7 +56,8 @@
 }
 
 .information-banner,
-.game-information-banner {
+.game-information-banner,
+.leaderboard-information-banner {
     background-color: red;
     width: 100vw;
     text-align: center;
@@ -64,7 +65,8 @@
 }
 
 .information-banner p,
-.game-information-banner-text {
+.game-information-banner-text,
+.leaderboard-information-banner p {
     margin: 25px;
     font-size: 24px;
     font-family: bannerFont;
@@ -127,6 +129,15 @@
     margin: 0px 5px 0px 5px;
 }
 
+.leaderboard-banner {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: 50px;
+    background-color: whitesmoke;
+}
+
 /* Game Page Styling */
 .game-wrapper {
     display: flex;
@@ -140,7 +151,8 @@
     align-items: center;
 }
 
-.game-start-btn {
+.game-start-btn,
+.leaderboard-btn {
     font-size: 24px;
     font-family: bannerFont;
     letter-spacing: .5rem;
@@ -201,4 +213,44 @@
 
 .dropdown-btn {
     margin-bottom: 2px;
+}
+
+/* Leaderboard Styling */
+.leaderboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leaderboard-information-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.leaderboard-cards {
+    display: flex;
+}
+
+.leaderboard-display-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 10px;
+
+    color: black
+}
+
+.leaderboard-display-card.active {
+    border: 3px solid red;
+}
+
+.leaderboard-display-card:hover {
+    transform: scale(1.05);
+}
+
+.leaderboard-mini-map {
+    height: 125px;
+    width: 125px;
 }

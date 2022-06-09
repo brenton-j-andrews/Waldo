@@ -80,9 +80,7 @@ const Game = (props) => {
     // Submit score to firebase database.
     const submitScore = async () => {
         const docPath = `level${props.level}`
-        const ref = await firestore.collection("game").doc(`level${props.level}`).get();
-        console.log(ref);
-
+        
         const data = {
             name: {username},
             score: {elapsedTime}

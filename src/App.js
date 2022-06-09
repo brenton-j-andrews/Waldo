@@ -12,6 +12,7 @@ import './Styles/App.css';
 import Header from './Components/General/Header';
 import Homepage from './Pages/Homepage';
 import Game from './Pages/Game';
+import Leaderboard from "./Pages/Leaderboard";
 
 function App() {
 
@@ -20,14 +21,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <BrowserRouter>
 
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={ <Homepage  setLevel={setLevel} />} />
           <Route path="/game" element={ <Game level={level} />} />
+          <Route path="/leaderboard" element={ <Leaderboard level={level} setLevel={setLevel} />} />
         </Routes>
-
       </BrowserRouter>
     </div>
   );
