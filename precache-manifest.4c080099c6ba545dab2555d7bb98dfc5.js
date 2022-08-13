@@ -40,12 +40,12 @@ self.__precacheManifest = [
     "url": "/Waldo/static/media/map6.21c649da.jpg"
   },
   {
-    "revision": "41f79afef3da102141fe5b23d63d507a",
-    "url": "/Waldo/static/media/QuartzoBold-W9lv.41f79afe.ttf"
-  },
-  {
     "revision": "64a255b0f9ac36d7385fe4ecca35478e",
     "url": "/Waldo/static/media/LandasansMedium-ALJ6m.64a255b0.otf"
+  },
+  {
+    "revision": "41f79afef3da102141fe5b23d63d507a",
+    "url": "/Waldo/static/media/QuartzoBold-W9lv.41f79afe.ttf"
   },
   {
     "revision": "4e17f7d0a304791dda972e704f008707",
