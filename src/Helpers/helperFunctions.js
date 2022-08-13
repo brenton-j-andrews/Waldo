@@ -9,7 +9,6 @@ export function renderIconsAndNames(props, arg) {
     const icons = Object.values(props.char_icons);
     const names = Object.values(props.char_names);
 
-
     // Render just icons
     if (arg === "icons") {
         return (
@@ -22,14 +21,28 @@ export function renderIconsAndNames(props, arg) {
     
     // Render both for display bar.
     else if (arg === "display") {
+        let isFound = Object.values(props.char_found);
         return (
 
-            icons.map(( icon, index) => 
-                <div className="char-icon-name">
-                    <img className="char-icon" src= {icon} alt="" key={icon}></img>
-                    <p className="char-name"> {names[index]}</p>
-                </div>
-            )
+            icons.map(( icon, index) => { 
+                if (isFound[index]) {
+                    return (
+                        <div className="char-icon-name">
+                            <img className="char-icon found" src= {icon} alt="" key={icon}></img>
+                            <p className="char-name"> {names[index]}</p>
+                        </div>
+                    )
+                }
+
+                else {
+                    return (
+                        <div className="char-icon-name">
+                            <img className="char-icon" src= {icon} alt="" key={icon}></img>
+                            <p className="char-name"> {names[index]}</p>
+                        </div>
+                    )
+                }
+            })
         )
     }
 }
