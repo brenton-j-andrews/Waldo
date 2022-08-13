@@ -1,6 +1,6 @@
 import React, { useState, useEffect  } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import firebase, { firestore } from "../firebase-config";
+import { firestore } from "../firebase-config";
 
 import Dropdown from "../Components/Game/Dropdown";
 import Modal from "../Components/Game/Modal";
@@ -18,7 +18,7 @@ const Game = (props) => {
     let [coords, setCoords] = useState([0, 0]);
     let [dropLoc, setDropLoc] = useState({ left: "0%", top: "0%"});
     let [gameOver, setGameOver] = useState(false);
-    let [startTime, setStartTime] = useState(Date.now());
+    let [startTime] = useState(Date.now());
     let [elapsedTime, setElapsedTime] = useState(null);
     let [username, setUsername] = useState("");
 
@@ -45,7 +45,7 @@ const Game = (props) => {
         let x_coord = e.nativeEvent.offsetX;
         let y_coord = e.nativeEvent.offsetY;
         setCoords([x_coord, y_coord]);
-        setDropLoc({ left: `${Math.round(( (x_coord - 50) / IMAGE_WIDTH ) * 100)}%`, top: `${Math.round(( (y_coord - 27) / IMAGE_HEIGHT ) * 100)}%` });
+        setDropLoc({ left: `${Math.round(( (x_coord - 52) / IMAGE_WIDTH ) * 100)}%`, top: `${Math.round(( (y_coord - 27) / IMAGE_HEIGHT ) * 100)}%` });
     }
 
     // Check answer after dropdown button click.
@@ -80,13 +80,14 @@ const Game = (props) => {
     // Submit score to firebase database.
     const submitScore = async () => {
         const docPath = `level${props.level}`
-        
         const data = {
             name: {username},
             score: {elapsedTime}
         }
 
-        firestore.collection("game").doc(docPath).collection("scores").add(data);
+        if (username !== "") {
+            firestore.collection("game").doc(docPath).collection("scores").add(data);
+        }
     }
 
     return (
@@ -97,7 +98,7 @@ const Game = (props) => {
                     { renderIconsAndNames(levelObject, "display")}
                 </div>
             
-                <button className="game-start-btn"> Click to Start! </button>
+                {/* <button className="game-start-btn"> Click to Start! </button> */}
                 <a href="/home">Return Home</a>
             </div>
             

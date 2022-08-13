@@ -12,9 +12,11 @@
 }
 #root,
 .App {
-    width: min(100%, 1500px);
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -135,7 +137,18 @@
 
     width: 100%;
     margin-top: 50px;
-    background-color: whitesmoke;
+    padding: 10px;
+    background-color: red;
+}
+
+.leaderboard-link {
+    color: black;
+    font-family: banner-font;
+    text-decoration: none;
+}
+
+.leaderboard-link:hover {
+    transform: scale(1.05);
 }
 
 /* Game Page Styling */
@@ -156,6 +169,10 @@
     font-size: 24px;
     font-family: bannerFont;
     letter-spacing: .5rem;
+    color: black;
+    padding: 5px;
+    background-color: #f2f2f2;
+    text-decoration: none;
 }
 
 .game-char-icons {
@@ -220,6 +237,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 15px;
 }
 
 .leaderboard-information-banner {
@@ -246,7 +264,9 @@
     border: 3px solid red;
 }
 
-.leaderboard-display-card:hover {
+.leaderboard-display-card:hover,
+.game-start-btn:hover,
+.leaderboard-btn:hover {
     transform: scale(1.05);
 }
 
@@ -254,3 +274,48 @@
     height: 125px;
     width: 125px;
 }
+
+/* Leaderboard table styling */
+.table-container {
+    width: 85%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid;
+    padding: 5px;
+    margin-top: 50px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+} 
+
+.table-col {
+    background-color: red;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+.leaderboard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Footer styling || */
+
+.footer-wrapper {
+    color: black;
+    background-color: var(--primary-background);
+    text-align: center;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    margin-top: auto;
+    padding: 25px;
+  }
+  
+  .footer-wrapper a {
+    text-decoration: none;
+  }

@@ -13,6 +13,7 @@ import Header from './Components/General/Header';
 import Homepage from './Pages/Homepage';
 import Game from './Pages/Game';
 import Leaderboard from "./Pages/Leaderboard";
+import Footer from './Components/General/Footer';
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
           <Route path="/leaderboard" element={ <Leaderboard level={level} setLevel={setLevel} />} />
         </Routes>
       </BrowserRouter>
+
+      <Footer />
     </div>
   );
 }

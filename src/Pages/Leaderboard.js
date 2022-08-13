@@ -16,7 +16,7 @@ const Leaderboard = ({ level, setLevel}) => {
         const data = [];
 
         const getLeaderboardData = async () => {
-            const collection = await firestore.collection('game').doc(dataPath).collection("scores").get()
+            await firestore.collection('game').doc(dataPath).collection("scores").get()
             .then(QuerySnapshot => {
                 QuerySnapshot.forEach(doc => {
                     let dataSummary = {
@@ -26,6 +26,9 @@ const Leaderboard = ({ level, setLevel}) => {
                     data.push(dataSummary);
                 })
             });
+
+            let test = data.sort((a, b) => a.score - b.score);
+            console.log(test);
 
             setLeaderboardData(data);
         } 
@@ -52,9 +55,9 @@ const Leaderboard = ({ level, setLevel}) => {
             <div className="leaderboard-information-banner">
                 <p> Leaderboard </p>
                 
-                <Link className="leaderboard-btn" to={"/game"}> Play </Link>
+                <Link className="leaderboard-btn" to={"/game"}> Play Selected Level </Link>
 
-                <Link className="leaderboard-btn" to={"/home"}> Return </Link>
+                <Link className="leaderboard-btn" to={"/home"}> Return Home </Link>
 
             </div>
             <div className="leaderboard-cards">

@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../../Styles/Modal.css";
 
 const Modal = (props) => {
+    const navigate = useNavigate();
+
+    const onBtnClick = () => {
+        props.submitScore();
+        navigate("/leaderboard");
+    }
 
     if (props.show) {
 
@@ -14,21 +21,21 @@ const Modal = (props) => {
                 <div className="modal-submit-form">
                    
                     <input 
-                        type="text"
+                        type="text" 
                         name="username"
                         id="username"
-                        value={props.username}
+                        value={props.username} 
                         maxLength="25"
                         onChange={props.updateUsername}
+                        required
                     />
 
-                    <button onClick={props.submitScore} link={"leaderboard"}> Submit Score </button>
+                    <button onClick={onBtnClick} link={"leaderboard"}> Submit Score </button>
 
                 </div>
 
                 <div className="modal-btns">
                     <a href="/home">Return Home</a>
-                    <a href="/home">Submit</a>
                 </div>
             </div>
         )

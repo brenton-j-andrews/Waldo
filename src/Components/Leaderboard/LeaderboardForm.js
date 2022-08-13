@@ -1,37 +1,32 @@
 import React from "react";
 
 const LeaderboardForm = ({ level, leaderboardData }) => {
-    console.log(`Leaderboard level: ${level}`);
-    console.log(leaderboardData);
-    
 
     return (
-        <div>
-            This is the leaderboard for level {level}.
+        <div className="table-container">
+            <table className="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th className="table-col"> Place </th>
+                        <th className="table-col"> Name </th>
+                        <th className="table-col"> Time (Seconds) </th>
+                    </tr>
+                </thead>
 
-            <div className="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Name </th>
-                            <th> Time (Seconds) </th>
-                        </tr>
-                    </thead>
+                <tbody>
+                    {
+                        leaderboardData.map((item, i) => (
+                            <tr key={i}>
+                                <td> {i + 1} </td>
+                                <td> {item.username} </td>
+                                <td>{item.score} </td> 
+                            </tr>
+                        ))
+                    }
+                </tbody>
 
-                    <tbody>
-                        {
-                            leaderboardData.map((item, i) => (
-                                <tr key={i}>
-                                    <td> {item.username} </td>
-                                    <td>{item.score} </td> 
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-
-                </table>
-            </div>
-        </div>
+            </table>
+        </div>   
     )
 }
 
